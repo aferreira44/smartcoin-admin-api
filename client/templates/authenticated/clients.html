@@ -1,0 +1,53 @@
+<template name="clients">
+  <h3>Painel</h3>
+  <br>
+  <h4>Clientes</h4>
+
+<div class="col-md-3">
+  <form id="new-client">
+    
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input type="text" class="form-control" id="name" placeholder="Nome">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descrição: </label>
+      <input type="text" class="form-control" id="description" placeholder="Descrição">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success">Salvar</button>
+    </div>
+  </form>
+</div>
+  <table class="table table-hover table-striped table-striped table-bordered table-condensed table-responsive text-center">
+     <thead>
+      <tr>
+         <th>Nome</th>
+         <th>Descrição</th>
+         <th>Endereço Carteira</th>
+         <th>Saldo</th>
+         <th>Token</th>
+         <th>Ativo</th>
+
+      </tr>
+     </thead>
+     <tbody>
+      {{#each client in clients}}
+      <tr>
+        <td>{{client.name}}</td>
+        <td>{{client.description}}</td>
+        <td>{{client.ethAccount}}</td>
+        <td>{{client.ethAccountBalance}}</td>
+        <td>{{client.token}}
+          <button class="btn btn-xs regenerate-api-key" value={{client._id}}>
+              <span aria-hidden='true' class='glyphicon glyphicon-refresh'></span>
+          </button>
+        </td>
+        <td>{{client.active}}</td>
+      </tr>
+      {{/each}}
+     </tbody>
+  </table>
+</template>

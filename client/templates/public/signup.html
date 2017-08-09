@@ -1,0 +1,21 @@
+<template name="signup">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h4 class="page-header">Nova Conta</h4>
+      <form id="signup" class="signup">
+        <div class="form-group">
+          <label for="emailAddress">E-mail</label>
+          <input type="email" name="emailAddress" class="form-control" placeholder="E-mail">
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" name="password" class="form-control" placeholder="Senha">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Cadastrar">
+        </div>
+      </form>
+      <p>Você já tem uma conta? <a href="{{pathFor 'login'}}">Log In</a>.</p>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,54 @@
+<template name="transactions">
+  <h3>Transferir Fundos</h3>
+  <br>
+
+<div class="col-md-3">
+  <form id="new-transaction">
+
+    <div class="form-group">
+      <label for="name">De: </label>
+      <input type="text" class="form-control" id="from" placeholder="Endereço Remetente">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Para: </label>
+      <input type="text" class="form-control" id="to" placeholder="Endereço Destino">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Valor: </label>
+      <input type="text" class="form-control" id="value" placeholder="Valor">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success">Enviar</button>
+    </div>
+  </form>
+</div>
+  <table class="table table-hover table-striped table-striped table-bordered table-condensed table-responsive text-center">
+     <thead>
+      <tr>
+         <th>Data</th>
+         <th>Remetente</th>
+         <th>Destinatário</th>
+         <th>Valor</th>
+         <th>Transação</th>
+         <th>Token</th>
+         <th>Admin</th>
+      </tr>
+     </thead>
+     <tbody>
+      {{#each transaction in transactions}}
+      <tr>
+        <td>{{transaction.date}}</td>
+        <td>{{transaction.from}}</td>
+        <td>{{transaction.to}}</td>
+        <td>{{transaction.value}}</td>
+        <td><a target="_blank" href="https://testnet.etherscan.io/tx/{{transaction.hash}}">Visualizar Transação</a></td>
+        <td>{{transaction.token}}</td>
+        <td>{{transaction.admindId}}</td>
+      </tr>
+      {{/each}}
+     </tbody>
+  </table>
+</template>
